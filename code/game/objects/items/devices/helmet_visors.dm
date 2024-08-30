@@ -25,9 +25,10 @@
 
 	///Default tracking options for the visor.
 	var/list/tracking_options = list(
-			"Squad Leader" = TRACKER_SL,
-			"Fireteam Leader" = TRACKER_FTL,
-			"Landing Zone" = TRACKER_LZ
+		"Platoon Commander" = TRACKER_PLTCO,
+		"Platoon Sergeant" = TRACKER_SL,
+		"Squad Sergeant" = TRACKER_FTL,
+		"Landing Zone" = TRACKER_LZ
 		)
 
 	///The target that we are currently tracking.
@@ -88,7 +89,7 @@
 	if(has_tracker && user.hud_used && user.hud_used.locate_leader)
 		//if we have a headset that also lets us track targets, do not hide the HUD.
 		var/obj/item/device/radio/headset/earpiece = user.get_type_in_ears(/obj/item/device/radio/headset)
-		var/has_access = earpiece.misc_tracking || (user.assigned_squad && user.assigned_squad.radio_freq == earpiece.frequency)
+		var/has_access = earpiece?.misc_tracking || (user.assigned_squad && user.assigned_squad.radio_freq == earpiece.frequency)
 		if(istype(earpiece) && earpiece.has_hud && has_access)
 			return
 		user.hide_hud_tracker()

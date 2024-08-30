@@ -57,7 +57,7 @@
 	if(has_hud)
 		headset_hud_on = TRUE
 		verbs += /obj/item/device/radio/headset/proc/toggle_squadhud
-		verbs += /obj/item/device/proc/
+		verbs += /obj/item/device/proc/switch_tracker_target
 
 	if(frequency)
 		for(var/cycled_channel in radiochannels)

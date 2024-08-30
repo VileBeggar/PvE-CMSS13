@@ -501,7 +501,7 @@
 	var/obj/item/device/tracker_object
 
 	var/obj/item/device/radio/headset/earpiece = user.get_type_in_ears(/obj/item/device/radio/headset)
-	var/has_access = earpiece.misc_tracking || (user.assigned_squad && user.assigned_squad.radio_freq == earpiece.frequency)
+	var/has_access = earpiece?.misc_tracking || (user.assigned_squad && user.assigned_squad.radio_freq == earpiece?.frequency)
 	if(istype(earpiece) && earpiece.has_hud && has_access)
 		tracker_object = earpiece
 
